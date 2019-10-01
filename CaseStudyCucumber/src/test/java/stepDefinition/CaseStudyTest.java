@@ -22,8 +22,8 @@ public class CaseStudyTest
 		driver.manage().window().maximize();
 		driver.get("http://10.232.237.143:443/TestMeApp/fetchcat.htm");
 		driver.findElement(By.xpath("//a[@href='login.htm']")).click();
-		driver.findElement(By.name("userName")).sendKeys("suraj0024");
-		driver.findElement(By.name("password")).sendKeys("suraj0024");
+		driver.findElement(By.name("userName")).sendKeys("Lalitha");
+		driver.findElement(By.name("password")).sendKeys("Password123");
 		driver.findElement(By.name("Login")).click();
 	}
 
@@ -31,7 +31,7 @@ public class CaseStudyTest
 	public void user_searches_for_a_product_by_typing_four_characters() {
 		WebElement serachBox=driver.findElement(By.xpath("//input[@type='text']"));
 		Actions act=new Actions(driver);
-		act.keyDown(serachBox, Keys.SHIFT);
+		act.contextClick(serachBox);
 		act.sendKeys("h").pause(300).sendKeys("e").pause(300).sendKeys("a").pause(300).sendKeys("d").build().perform();
 		String str=driver.findElement(By.xpath("(//div[contains(.,'Headphone')])[4]")).getText();
 		boolean flag=str.toLowerCase().contains("head");
